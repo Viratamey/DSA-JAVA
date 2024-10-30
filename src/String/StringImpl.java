@@ -1,3 +1,5 @@
+package String;
+
 public class StringImpl {
     public static void main(String[] args) {
         String str = "custom string";
