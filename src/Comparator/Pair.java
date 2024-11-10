@@ -1,5 +1,7 @@
+package Comparator;
+
 import java.util.*;
-//import javafx.util.Pair;
+//import javafx.util.Comparator.Pair;
 
 public class Pair implements Comparator {
 
