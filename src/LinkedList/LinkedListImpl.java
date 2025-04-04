@@ -1,7 +1,7 @@
 package LinkedList;
 
 class Node<E> {
-    public Node(E element) {
+     Node(E element) {
         this.item = element;
     }
     public E item;
