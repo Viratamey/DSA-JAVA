@@ -58,6 +58,7 @@ public class LinkedListImpl<E> {
             else {
                 start = start.next;
                 start.prev = null;
+                temp.next = null;
             }
             return temp.item;
         }
@@ -74,6 +75,7 @@ public class LinkedListImpl<E> {
             else {
                 end = end.prev;
                 end.next = null;
+                temp.prev = null;
             }
             return temp.item;
         }
@@ -86,21 +88,22 @@ public class LinkedListImpl<E> {
         }
         Node<E> node = start;
         if(element == null) {
-            while(node!=null && node.item != element) {
+            while(node!=null) {
+                if(node.item == element) {
+                    unlink(node);
+                    return true;
+                }
                 node = node.next;
             }
-            if(node!=null && element == node.item) {
-                unlink(node);
-                return true;
-            }
+
         }
         else {
-            while(node!=null && node.item != element) {
+            while(node!=null) {
+                if(element.equals(node.item)) {
+                    unlink(node);
+                    return true;
+                }
                 node = node.next;
-            }
-            if(node!=null && node.item == element) {
-                unlink(node);
-                return true;
             }
         }
         return false;
@@ -132,8 +135,11 @@ public class LinkedListImpl<E> {
         LinkedListImpl<String> list = new LinkedListImpl<>();
         list.addLast("rohit");
         list.addLast("rahul");
+        list.addLast("pant");
+        list.addFirst("axar");
         list.addFirst("virat");
         list.addFirst("king");
+        list.removeFirst();
         System.out.println(list);
         list.remove("rohit");
         System.out.println(list);
@@ -142,8 +148,6 @@ public class LinkedListImpl<E> {
         list.remove("king");
         System.out.println(list);
         list.remove("rahul");
-        System.out.println(list);
-        list.removeFirst();
         System.out.println(list);
         list.removeLast();
         System.out.println(list);
