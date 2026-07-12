@@ -32,12 +32,12 @@ public class Pair implements Comparator {
             @Override
             public int compare(Map.Entry<Integer, String> o1, Map.Entry<Integer, String> o2) {
                 if (o1.getKey() - o2.getKey() == 0) {
-                    if (o1.getKey() == o2.getKey())
+                    if (o1.getValue().length() == o2.getValue().length())
                         return 1;
                     else
-                        return o1.getKey() - o2.getKey();
+                        return o2.getValue().length() - o1.getValue().length();
                 }
-                return o1.getKey() - o2.getKey();
+                return o2.getKey() - o1.getKey();
             };
         });
         treeSet.add(p1);
